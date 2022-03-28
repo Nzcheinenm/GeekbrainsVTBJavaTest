@@ -10,10 +10,10 @@ import java.util.List;
 
 public class App1 {
     public static void main(String[] args) {
-        Cat cat = new Cat();
-        Cat cat2 = new Cat();
-        Dog dog = new Dog();
-        HomeCat homeCat = new HomeCat();
+        Cat cat = new Cat("Барсик");
+        Cat cat2 = new Cat("Рыжик");
+        Dog dog = new Dog("Рекс");
+        HomeCat homeCat = new HomeCat("Пушистик");
 
         int countCat = 0;
         int countDog = 0;
