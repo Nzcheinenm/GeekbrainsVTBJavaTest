@@ -1,15 +1,20 @@
 package vtb.geekbrains;
 
 //import vtb.geekbrains.animals.Cat;
+
 import vtb.geekbrains.test2.*;
+import vtb.geekbrains.test3.MyArrayDataException;
+import vtb.geekbrains.test3.MyArraySizeException;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class App1 {
-    public static void main(String[] args) {
+
+    //public static void main(String[] args) {
 
         /* HomeWork1
+        public static void main(String[] args) {
         Cat cat = new Cat("Барсик");
         Cat cat2 = new Cat("Рыжик");
         Dog dog = new Dog("Рекс");
@@ -31,9 +36,15 @@ public class App1 {
         System.out.println("Всего в массиве Котов - " + Cat.count);
         System.out.println("Всего в массиве Собак - " + Dog.count);
         System.out.println("Всего в массиве Домашних Котов - " + HomeCat.count);
+
+    }
         */
 
+
+
+        /*
         //HomeWork 2
+        public static void main(String[] args) {
         JumpStand jumpStand = new JumpStand(100);
         RunSpace runSpace = new RunSpace(100);
         JumpStand jumpStand2 = new JumpStand(200);
@@ -60,5 +71,63 @@ public class App1 {
                     obstacle.doIt(act);
             }
         }
+    }
+         */
+
+
+    //HomeWork 3
+    public static void main(String[] args) {
+
+        String[][] arr1 = {
+                {"1", "2", "3", "4"},
+                {"1", "2", "3", "4"}
+        };
+        String[][] arr2 = {
+                {"1", "2", "A", "4"},
+                {"1", "c", "3", "4"},
+                {"1", "2", "Sd", "4"},
+                {"1", "2", "3", "4"}
+        };
+        String[][] arr3 = {
+                {"1", "2", "3", "4"},
+                {"1", "2", "3", "4"},
+                {"1", "2", "3", "4"},
+                {"1", "2", "3", "4"}
+        };
+        try {
+            getArray(arr1);
+        } catch (MyArraySizeException e) {
+            System.out.println(e);
+        } finally {
+            try {
+                getArray(arr2);
+            } catch (MyArrayDataException e) {
+                System.out.println(e);
+            } finally {
+                try {
+                    getArray(arr3);
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+            }
+        }
+    }
+
+    public static void getArray(String[][] arr) throws MyArrayDataException {
+        System.out.println(arr.length);
+        if (arr.length != 4) {
+            throw new MyArraySizeException(arr.length);
+        }
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                try {
+                    count += Integer.valueOf(arr[i][j]);
+                } catch (NumberFormatException e) {
+                    throw new MyArrayDataException(i, j);
+                }
+            }
+        }
+        System.out.println(count);
     }
 }
