@@ -4,9 +4,11 @@ public class Dog extends Animal{
     int runLength = 500;
     int swimLength = 50;
     private String name ;
+    public static int count;
 
     public Dog(String name) {
         this.name = name;
+        count++;
     }
 
     @Override

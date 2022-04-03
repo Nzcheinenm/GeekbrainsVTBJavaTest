@@ -1,11 +1,13 @@
 package vtb.geekbrains.animals;
 
 public class Cat extends Animal{
+    public static int count;
     int runLength = 200;
     private String name ;
 
     public Cat(String name) {
         this.name = name;
+        count++;
     }
 
     @Override

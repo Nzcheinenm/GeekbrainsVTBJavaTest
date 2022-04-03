@@ -3,9 +3,11 @@ package vtb.geekbrains.animals;
 public class HomeCat extends Animal{
     int runLength = 20;
     private String name ;
+    public static int count;
 
     public HomeCat(String name) {
         this.name = name;
+        count++;
     }
 
     @Override

@@ -1,23 +1,19 @@
 package vtb.geekbrains;
 
-import vtb.geekbrains.animals.Animal;
-import vtb.geekbrains.animals.Cat;
-import vtb.geekbrains.animals.Dog;
-import vtb.geekbrains.animals.HomeCat;
+//import vtb.geekbrains.animals.Cat;
+import vtb.geekbrains.test2.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class App1 {
     public static void main(String[] args) {
+
+        /* HomeWork1
         Cat cat = new Cat("Барсик");
         Cat cat2 = new Cat("Рыжик");
         Dog dog = new Dog("Рекс");
         HomeCat homeCat = new HomeCat("Пушистик");
-
-        int countCat = 0;
-        int countDog = 0;
-        int countHomeCat = 0;
 
         List<Animal> list = new ArrayList<>();
 
@@ -30,14 +26,39 @@ public class App1 {
             System.out.println(an.run(100));
             System.out.println(an.swim(100));
             System.out.println("");
-            if (an instanceof Cat) countCat++;
-            if (an instanceof Dog) countDog++;
-            if (an instanceof HomeCat) countHomeCat++;
         }
 
-        System.out.println("Всего в массиве Котов - " + countCat);
-        System.out.println("Всего в массиве Собак - " + countDog);
-        System.out.println("Всего в массиве Домашних Котов - " + countHomeCat);
+        System.out.println("Всего в массиве Котов - " + Cat.count);
+        System.out.println("Всего в массиве Собак - " + Dog.count);
+        System.out.println("Всего в массиве Домашних Котов - " + HomeCat.count);
+        */
 
+        //HomeWork 2
+        JumpStand jumpStand = new JumpStand(100);
+        RunSpace runSpace = new RunSpace(100);
+        JumpStand jumpStand2 = new JumpStand(200);
+        RunSpace runSpace2 = new RunSpace(300);
+
+        List<Obstacle> obs = new ArrayList<>();
+        obs.add(jumpStand);
+        obs.add(runSpace);
+        obs.add(jumpStand2);
+        obs.add(runSpace2);
+
+        Human dime = new Human("Дима", 200,200);
+        Cat meow = new Cat("Рыжик", 120,40);
+        Cat meow2 = new Cat("Пушистик", 50,110);
+
+        List<Action> actionList = new ArrayList<>();
+        actionList.add(dime);
+        actionList.add(meow);
+        actionList.add(meow2);
+
+        for (Obstacle obstacle: obs) {
+            for (Action act: actionList) {
+                if (act.getIsComplete())
+                    obstacle.doIt(act);
+            }
+        }
     }
 }
