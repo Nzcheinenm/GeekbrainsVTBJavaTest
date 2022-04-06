@@ -2,12 +2,9 @@ package vtb.geekbrains;
 
 //import vtb.geekbrains.animals.Cat;
 
-import vtb.geekbrains.test2.*;
-import vtb.geekbrains.test3.MyArrayDataException;
-import vtb.geekbrains.test3.MyArraySizeException;
-
-import java.util.ArrayList;
-import java.util.List;
+import vtb.geekbrains.test4.Apple;
+import vtb.geekbrains.test4.Box;
+import vtb.geekbrains.test4.Task1;
 
 public class App1 {
 
@@ -74,7 +71,7 @@ public class App1 {
     }
          */
 
-
+    /*
     //HomeWork 3
     public static void main(String[] args) {
 
@@ -129,5 +126,32 @@ public class App1 {
             }
         }
         System.out.println(count);
+    }
+     */
+
+
+    //Homework 4
+    public static void main(String[] args) {
+        Task1<Integer> task1 = new Task1<>();
+        Integer[] integerArr = new Integer[]{1,2,3,4};
+        task1.swapArray(integerArr,1,2);
+        task1.toArrayList(integerArr).forEach(System.out::print);
+
+        Apple apple1 = new Apple();
+        Apple apple2 = new Apple();
+
+        System.out.println();
+
+        Box<Apple> box = new Box<>(apple1);
+        box.addFruit(apple2);
+        box.addFruit(apple1);
+        System.out.println(box.getWeight());
+
+        Box<Apple> box2 = new Box<>();
+        box2.addFruit(apple2);
+        System.out.println(box.compare(box2));
+        box.empty(box2);
+
+        System.out.println(box2.getWeight());
     }
 }
