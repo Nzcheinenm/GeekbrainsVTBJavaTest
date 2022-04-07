@@ -16,6 +16,7 @@ public class Box <T extends Fruit>{
 
     public void addFruit(T fruit) {
         this.fruits.add(fruit);
+        this.weight += fruit.getMass();
     }
 
     public int getWeight() {
@@ -36,6 +37,7 @@ public class Box <T extends Fruit>{
         }
 
         fruits.clear();
+        weight = 0;
     }
 
 }
