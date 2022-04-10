@@ -4,7 +4,10 @@ package vtb.geekbrains;
 
 import vtb.geekbrains.test4.Apple;
 import vtb.geekbrains.test4.Box;
-import vtb.geekbrains.test4.Task1;
+import vtb.geekbrains.test5.PhoneList;
+import vtb.geekbrains.test5.Task1;
+
+import java.util.Map;
 
 public class App1 {
 
@@ -129,7 +132,7 @@ public class App1 {
     }
      */
 
-
+    /*
     //Homework 4
     public static void main(String[] args) {
         Task1<Integer> task1 = new Task1<>();
@@ -153,5 +156,27 @@ public class App1 {
         box.empty(box2);
 
         System.out.println(box2.getWeight());
+    }
+     */
+
+    //Homework 5
+    public static void main(String[] args) {
+        String[] str = new String[]{
+                "AAA","BBB","AAA","CCC","AAA","DDD","BBB","HHH","PPP","EEE","TTT","AAA","PPP","MMM"
+        };
+
+        System.out.println(Task1.getListUnique(str));
+
+        ///////
+
+        PhoneList phList = new PhoneList("89009009090","Петров");
+        phList.add("89199009090","Иванов");
+        phList.add("89299009090","Васильев");
+        phList.add("89399009090","Петров");
+        phList.add("89499009090","Себастьян");
+        phList.add("89099009090","Крудюк");
+
+        phList.get("Петров");
+
     }
 }
