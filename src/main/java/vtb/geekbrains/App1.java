@@ -2,12 +2,7 @@ package vtb.geekbrains;
 
 //import vtb.geekbrains.animals.Cat;
 
-import vtb.geekbrains.test4.Apple;
-import vtb.geekbrains.test4.Box;
-import vtb.geekbrains.test5.PhoneList;
-import vtb.geekbrains.test5.Task1;
-
-import java.util.Map;
+import vtb.geekbrains.test6.Threads;
 
 public class App1 {
 
@@ -159,6 +154,7 @@ public class App1 {
     }
      */
 
+    /*
     //Homework 5
     public static void main(String[] args) {
         String[] str = new String[]{
@@ -178,5 +174,14 @@ public class App1 {
 
         phList.get("Петров");
 
+    }
+     */
+
+
+    //HomeWork 6
+    public static void main(String[] args) {
+        Threads threads = new Threads();
+        threads.nothingThreads();
+        threads.existThreads();
     }
 }
