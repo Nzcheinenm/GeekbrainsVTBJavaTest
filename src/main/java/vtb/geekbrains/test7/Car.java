@@ -5,8 +5,12 @@ import java.util.concurrent.CyclicBarrier;
 
 public class Car implements Runnable {
     private static int CARS_COUNT;
+    static Object obj;
+    static boolean isWin;
     static {
         CARS_COUNT = 0;
+        obj = new Object();
+        isWin = true;
     }
 
     static CyclicBarrier cb;
@@ -15,6 +19,8 @@ public class Car implements Runnable {
     private int speed;
     private String name;
     private static int isFirst = 0;
+
+
     public String getName() {
         return name;
     }
@@ -51,8 +57,13 @@ public class Car implements Runnable {
         for (int i = 0; i < race.getStages().size(); i++) {
             race.getStages().get(i).go(this);
         }
+        synchronized (obj) {
+            if(isWin) {
+                isWin = false;
+                System.out.println(this.name + " - WIN!!");
+            }
+        }
         isFirst++;
-        if(isFirst == 1) System.out.println(this.name + " - WIN!!");
         if(isFirst == CARS_COUNT) System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка закончилась!!!");
     }
 }

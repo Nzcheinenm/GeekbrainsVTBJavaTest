@@ -5,6 +5,7 @@ package vtb.geekbrains;
 import vtb.geekbrains.test6.Threads;
 import vtb.geekbrains.test7.*;
 
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
 
 public class App1 {
@@ -203,7 +204,6 @@ public class App1 {
         for (int i = 0; i < cars.length; i++) {
             new Thread(cars[i]).start();
         }
-
     }
 
 }
