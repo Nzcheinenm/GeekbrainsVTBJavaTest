@@ -5,8 +5,10 @@ package vtb.geekbrains;
 import vtb.geekbrains.test6.Threads;
 import vtb.geekbrains.test7.*;
 
+import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
+import java.util.stream.Collectors;
 
 public class App1 {
 
@@ -190,6 +192,7 @@ public class App1 {
     }
      */
 
+    /*
     //HomeWork 7
     public static final int CARS_COUNT = 4;
 
@@ -205,5 +208,52 @@ public class App1 {
             new Thread(cars[i]).start();
         }
     }
+     */
+
+    //HomeWork 8
+    public static class Consumer {
+        String name;
+        int age;
+        int pay;
+
+        Consumer(String name,int age,int pay) {
+            this.age = age;
+            this.name = name;
+            this.pay = pay;
+        }
+    }
+    public static void main(String[] args) {
+        List<String> listCheck = new ArrayList<>();
+        List<String> list = new ArrayList<>(Arrays.asList("A","BB","CCC","BB","A","BB","D","DEER","DEER"));
+        System.out.println(Arrays.toString(list.stream().sorted((s1, s2) -> {
+                    return s1.compareTo(s2);
+                }).toArray()));
+
+
+        //2
+        Consumer cons1 = new Consumer("Иван",20,300);
+        Consumer cons2 = new Consumer("Коля",60,200);
+        Consumer cons3 = new Consumer("Себас",50,300);
+        Consumer cons4 = new Consumer("Петя",20,400);
+
+        List<Consumer> consumers = new ArrayList<>();
+        consumers.add(cons1);
+        consumers.add(cons2);
+        consumers.add(cons3);
+        consumers.add(cons4);
+
+        System.out.println(consumers.stream().mapToInt(x -> x.pay).sum());
+        //3
+        oldConsumers(consumers,2);
+    }
+    //3
+    public static void oldConsumers(List<Consumer> consumers, int n) {
+        System.out.println("Самых старших сотрудников " + n + "x зовут:");
+        List<Consumer> list = consumers.stream().sorted((x,y)-> y.age - x.age).collect(Collectors.toList());
+        for (int i = 0; i <n; i++ ) {
+            System.out.println("Сотрудник " + list.get(i).name + " в возрасте " + list.get(i).age);
+        }
+    }
+
 
 }
